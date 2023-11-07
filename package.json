@@ -1,6 +1,9 @@
 {
   "name": "projeto-cadastro-de-users",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
+  },
   "type": "module",
   "description": "",
   "main": "index.js",
