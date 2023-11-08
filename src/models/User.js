@@ -5,12 +5,18 @@ const userSchema = new Schema({
     name:{
         type:String
     },
-    email:{
+    linkedin:{
         type:String,
-        unique:true
     },
     whatsapp:{
         type:String
+    },
+    portfolio:{
+        type:String
+    },
+    url:{
+        type:String,
+        default:""
     }
 })
 

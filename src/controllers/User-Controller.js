@@ -1,26 +1,26 @@
 import User from "../models/User.js"
 
 export const createUser = async(req,res)=>{
-    const {name,email,whatsapp}=req.body
+    const {name,linkedin,whatsapp,portfolio,url}=req.body
     try{
-        const userExist = await User.findOne({email})
-        if(userExist){
-            return res.status(400).json({message:"já existe um usuário cadastrado com esse email"})
-        }
-
+    
         if(!name){
             return res.status(400).json({message:'o nome é obrigatório'})
         }
 
-        if(!email){
-            return res.status(400).json({message:'o email é obrigatório'})
+        if(!linkedin){
+            return res.status(400).json({message:'o link do linkedin é obrigatório'})
+        }
+
+        if(!portfolio){
+            return res.status(400).json({message:'o link do portfólio é obrigatório'})
         }
 
         if(!whatsapp){
             return res.status(400).json({message:'o whatsapp é obrigatório'})
         }
 
-        const user = {name,email,whatsapp}
+        const user = {name,linkedin,whatsapp,portfolio,url}
         await User.create(user)
         res.status(201).json(user)
     }catch(error){
